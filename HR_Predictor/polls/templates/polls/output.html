@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>HR_Predictor</title>
+    <style>
+
+        /* Style the header */
+        header {
+            font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+            sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            box-sizing: border-box;
+            background-color: white;
+            border-style: solid;
+            border-width: 1.455px;
+            border-color: black;
+            padding: 30px;
+            text-align: center;
+            font-size: 35px;
+            color: #858796;
+        }
+        body {font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+        sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            padding: 10px;
+        }
+        .center {
+            margin: auto;
+            width: 60%;
+            border: 3px solid #73AD21;
+            padding: 10px;
+        }
+
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+            border: 2px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            background-color: inherit;
+            float: left;
+<!--            border: none;-->
+<!--            outline: none;-->
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+            margin: 0;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #337ab7;
+            color: #f5f7f2;
+        }
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+
+        /* Style the close button */
+        .topright {
+            float: right;
+            cursor: pointer;
+            font-size: 28px;
+        }
+
+        .topright:hover {color: red;}
+        .button {
+            font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+            sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            background-color: #337ab7;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 16px;
+        }
+        button:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        #customers {
+            font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            border-collapse: collapse;
+            float: left;
+            width: 100.33%;
+
+            height: 300px;
+            padding: 5px;
+            overflow: scroll;
+            display: block;
+
+        }
+
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 2px;
+            white-space: nowrap;
+        }
+        #customers tr:nth-child(even){background-color: #f2f2f2; }
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+
+            padding-top: 2px;
+            padding-bottom: 2px;
+            text-align: center;
+            background-color: #3285a8;
+            color: white;
+
+        }
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            color: black;
+            text-align: center;
+        }
+        .form1{
+            font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+            sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            padding-left:400px;
+            font-size: medium;
+        }
+        .th2{
+            font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+            sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            padding-right:8px;
+            font-size: medium;
+            font-weight: bold;
+
+        }
+    </style>
+
+</head >
+<body onload="document.getElementById('defaultOpen').click();">
+<BR>
+<header>
+    {% load static %}
+    <img src="{% static  '/images/Python_logo.jpg' %}" class="img-responsive" style="height: 67px; margin-top: -10px" align="Left">
+    <img src="{% static  '/images/logo_techm.png' %}" class="img-responsive" style="height: 67px; margin-top: -10px" align="right">
+    <span style="font-weight: bold">HR_Predictor</span>
+
+</header>
+<BR>
+<!--Data given at input form-->
+<div class="form1">
+ <!-- <table > 
+    <tbody>
+    <tr>
+        <td class="th2">Country Selected      </td>
+        <td>:{{Selected_Country}}</td>
+    </tr>
+
+    <tr>
+        <td class="th2" >Start Date </td>
+        <td>:{{start_date}}</td>
+    </tr>
+    <tr>
+        <td class="th2">End Date </td>
+        <td>:{{end_date}}</td>
+    </tr>
+
+    <tr>
+        <td  class="th2" >File Imported  </td>
+        <td>:{{Input_filename}}</td>
+    </tr>
+    </tbody>
+</table>
+-->
+</div>
+
+<br>
+    <div class="tab">
+<!--        Please comment the first line and uncomment the second line if u don't wasnt the default display-->
+        <button class="tablinks active" type="button" onclick="openCity(event, 'Suspicous Transactions')" id="defaultOpen">Employees Left Company</button>
+<!--    <button  class="tablinks" onclick="openCity(event, 'Suspicous Transactions')">Suspicous Transactions</button>-->
+    <button   class="tablinks" onclick="openCity(event, 'Unsuspicous Transactions')">Employees Stayed Company</button>
+</div>
+    <div id="Suspicous Transactions" class="tabcontent">
+        <table id="customers" >
+            <tr>
+                {% for headers, val in outputfile.items %}
+                <th>{{ headers }}</th>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for headers, values in outputfile.items %}
+                <td>
+                    <table width="100%" border="0" class="table">
+                        {% for index, val in values.items %}
+                        <tr class="{% cycle 'odd' 'even' %}"><td>{{ val }}</td></tr>
+                        {% endfor %}
+                    </table>
+                </td>
+                {% endfor %}
+            </tr>
+        </table>
+        <a class="button" href="/polls/form/" >Home</a>
+        <a class="button"  >Export to Excel</a>
+    </div>
+
+    <div id="Unsuspicous Transactions" class="tabcontent">
+        <table id="customers">
+            <thead>
+            <tr>
+                {% for headers, val in outputfile_ns.items %}
+                <th>{{ headers }}</th>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for headers, values in outputfile_ns.items %}
+                <td>
+                    <table width="100%" border="0" class="table">
+                        {% for index, val in values.items %}
+                        <tr class="{% cycle 'odd' 'even' %}"><td>{{ val }}</td></tr>
+                        {% endfor %}
+                    </table>
+                </td>
+                {% endfor %}
+            </tr>
+        </table>
+        <a class="button" href="/polls/form/" >Home</a>
+        <a class="button"  >Export to Excel</a>
+    </div>
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+    <!-- Footer -->
+
+    <div class="footer">
+        <p>Copyright &copy; Tech Mahindra</p>
+    </div>
+    <!-- End of Footer -->
+
+</body>
+</html>
